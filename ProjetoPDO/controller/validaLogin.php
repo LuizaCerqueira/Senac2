@@ -11,6 +11,7 @@ require_once  'C:/xampp/htdocs/ProjetosPHP/ProjetoPDO//model/Pessoa.php';
 
 if(isset($_POST)){
     $login = $_POST['login'];
+    
     $senha = $_POST['senha'];
 }else{
     header("Location: ../sessionDestroy.php"); exit;
