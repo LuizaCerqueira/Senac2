@@ -1,6 +1,10 @@
 
 
-<?php ?>
+<?php 
+require_once './controller/dentistaController.php';
+require_once './model/mensagem.php';
+$msg = new mensagem(); 
+?>
 <!DOCTYPE html>
 <html lang = "pt-br">
     <head>
@@ -105,8 +109,23 @@
 
                 <div class="col-4 offset-1 bg-gradient rounded-3" style=" background-color: black;opacity: 80%">
                     <div >
-
-                        <form style="color: white">
+                        <?php
+                        if (isset($_POST['cadastrarDentista'])){
+                            if (!empty($_POST['nome'])) {
+                                $nome = trim($_POST['nome']);
+                                $clinica = $_POST['clinica'];
+                                
+                                $dec = new dentistaController();
+                                unset($_POST['cadastrarDentista']);
+                                
+                                $msg = $dec->inserirDentista($nome, $clinica);
+                                echo $msg->getMsg();
+                                //echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"3;
+                            //URL='cadastroDentista.php'\">";
+                            }
+                        }
+                        ?>
+                        <form  method="post" action="" style="color: white" >
                             <h3 style="text-align: center">Cadastro Dentista</h3>
                             <div class="form-group">
                                 <label>Código</label>
@@ -115,26 +134,26 @@
 
                             <div class="form-group">
                                 <label>Nome</label>
-                                <input type="text" class="form-control" name="nomeDentista">
+                                <input type="text" class="form-control" name="nome" required="">
                             </div>
 
                             <div class="form-group">
                                 <label >Clínica Filiada</label>
-                                <select class="form-control" name="idClinica">
+                                <select class="form-control" name="clinica">
                                     <option hidden="">[SELECIONE]</option>
-                                    <option>clinica1</option>
-                                    <option>clinica2</option>
-                                    <option>clinica3</option>
+                                    <option value="1">Clinica Odontológica dentinho</option>
+                                    <option value="2">OrthoClin</option>
+                                    <option value="3">OutraClin</option>
 
                                 </select>
                             </div>
                             <br>
                             <div class="offset-3">
-                            <input type="submit" name="cadastrarPaciente"
+                            <input type="submit" name="cadastrarDentista"
                                    class="btn btn-success btInput" value="Enviar"
                                    <?php //if ($btEnviar == TRUE) echo "disabled"; ?>>
 
-                            <input type="submit" name="atualizarPaciente"
+                            <input type="submit" name="atualizarDentista"
                                    class="btn btn-warning btInput" value="Atualizar"
                                    <?php //if ($btAtualizar == FALSE) echo "disabled"; ?>>
                             <br><br>
@@ -158,16 +177,16 @@
 
                                 <div class="form-group">
                                     <label>Nome</label>
-                                    <input type="text" class="form-control" name="nomeClinica">
+                                    <input type="text" class="form-control" name="nome">
                                 </div>
                                 <br>
                                 <br>
                                 <div class=" offset-3">
-                                <input type="submit" name="cadastrarPaciente"
+                                <input type="submit" name="cadastrarClinica"
                                        class="btn btn-success btInput" value="Enviar"
                                        <?php //if ($btEnviar == TRUE) echo "disabled"; ?>>
 
-                                <input type="submit" name="atualizarPaciente"
+                                <input type="submit" name="atualizarClinica"
                                        class="btn btn-warning btInput" value="Atualizar"
                                        <?php //if ($btAtualizar == FALSE) echo "disabled"; ?>>
                                 </div>

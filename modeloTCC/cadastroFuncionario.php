@@ -104,9 +104,6 @@ $msg = new mensagem();
         </nav>
         <br>
         
-        
-        
-        
         <div class="row">
             <div class="col-4 offset-4 bg-gradient rounded-3" style=" background-color: black;opacity: 80%">
                 
@@ -200,56 +197,84 @@ $msg = new mensagem();
 
 
 
+        
+        <div class="container-fluid">
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-8 offset-2">
 
-        <!--        <div class="form-group">
-                            <label for="exampleFormControlSelect2">Exemplo de select múltiplo</label>
-                            <select multiple class="form-control" id="exampleFormControlSelect2">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Exemplo de textarea</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-        -->
+                    <div class="card-header bg-light text-center border"
+                         style="padding-bottom: 15px; padding-top: 15px;">
+                         Cadastro Funcionário
+                    </div>
+                    <?php
+                   
+                    if (isset($_POST['cadastrar'])) {
+                        include_once 'controller/PessoaController.php';
+                        $nome = $_POST['nome'];
+                        $dtNasc = $_POST['dtNasc'];
+                        $login = $_POST['login'];
+                        $senha = $_POST['senha'];
+                        $perfil = $_POST['perfil'];
+                        $cpf = $_POST['cpf'];
+                        $email = $_POST['email'];
 
-
-
-        <script src="js/bootstrap.bundle.min.js"></script>
-
-
-
+                        $pc = new PessoaController();
+                        echo "<p>".$pc->inserirPessoa($nome, $dtNasc, 
+                            $login, $senha, $perfil, $email, $cpf)."</p>";
+                    }
+                    ?>
+                    <div class="card-body border">
+                        <form method="post" action="">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Código: </label> <br> 
+                                    <label>Nome Completo:</label>  
+                                    <input class="form-control" type="text" 
+                                           name="nome">
+                                    <label>Data de Nascimento</label>  
+                                    <input class="form-control" type="date" 
+                                           name="dtNasc">  
+                                    <label>E-Mail:</label>  
+                                    <input class="form-control" type="email" 
+                                           name="email"> 
+                                    <label>CPF:</label>  
+                                    <input class="form-control" type="text" 
+                                           name="cpf">
+                                </div>
+                                <div class="col-md-6">
+                                    <br>
+                                    <label>Login</label>  
+                                    <input class="form-control" type="text" 
+                                           name="login">  
+                                    <label>Senha</label>  
+                                    <input class="form-control" type="password" 
+                                           name="senha"> 
+                                    <label>Conf. Senha</label>  
+                                    <input class="form-control" type="password" 
+                                           name="senha2"> 
+                                    <label>Perfil</label>  
+                                    <select name="perfil" class="form-control">
+                                        <option>[--Selecione--]</option>
+                                        <option>Cliente</option>
+                                        <option>Funcionário</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6 offset-4">
+                                <input type="submit" name="cadastrar"
+                                       class="btn btn-success btInput" value="Enviar">
+                                &nbsp;&nbsp;
+                                <input type="reset" 
+                                       class="btn btn-light btInput" value="Limpar">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </body>
-
-
 </html>
 
-
-<!--
-$listaFornecedores= $fc->listarFornecedor();
-if($listaFornecedores != null){
-foreach ($listaFornecedores as $lf){
-?>
-<!--<option value="<?php //echo $lf->getIdFornecedor();    ?>"-->
-
-<?php
-/*$pr->getFornecedor()->getIdfornecedor();
-if ($pr->getFornecedor()->getIdfornecedor() != "") {
-    if ($lf->getIdfornecedor() == $pr->getFornecedor()->getIdfornecedor()) {
-        echo "selected = 'selected'";
-    }
-}
-?>
->
-
-<?php echo $lf->getNomeFornecedor(); ?><!--</option>-->
-<?php
-/*
-  }
-  }
- */
 

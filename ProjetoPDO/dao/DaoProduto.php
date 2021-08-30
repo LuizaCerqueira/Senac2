@@ -58,7 +58,7 @@ class DaoProduto {
 
             
             try{
-                $stmt = $conecta->prepare("update produto set ". "nome = ?,". "vlrCompra = ?,". "vlrVenda = ?, "  "imagem = ?,". "qtdEstoque = ?, " . "fkFornecedor = ? " . "where id = ?");
+                $stmt = $conecta->prepare("update produto set ". "nome = ?,". "vlrCompra = ?,". "vlrVenda = ?, ". "imagem = ?,". "qtdEstoque = ?, " . "fkFornecedor = ? " . "where id = ?");
                 $stmt->bindParam(1, $nomeProduto);
                 $stmt->bindParam(2, $vlrCompra);
                 $stmt->bindParam(3, $vlrVenda);

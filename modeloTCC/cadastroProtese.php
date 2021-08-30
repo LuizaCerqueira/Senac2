@@ -105,11 +105,11 @@
         <div class="container-fluid">
 
             <div class="row" >
-                <div class="col-12  bg-gradient rounded-3" style=" background-color: black;opacity: 80%">
+                <div class="col-8 offset-2 bg-gradient rounded-3" style=" background-color: black;opacity: 80%">
                     <h3 style="text-align: center; color: white">Cadastro Prótese</h3>
                 </div>
 
-                <div class="col-6 bg-gradient rounded-3" style=" background-color: black;opacity: 80%">
+                <div class="col-4 bg-gradient offset-2" style=" background-color: black;opacity: 80%">
                     <div>
                         <form style="color: white">
 
@@ -173,7 +173,7 @@
 
 
 
-                <div class="col-6 bg-gradient rounded-3" style=" background-color: black;opacity: 80%">
+                <div class="col-4  bg-gradient" style=" background-color: black;opacity: 80%">
 
                     <div>
                         <form style="color: white">
@@ -240,7 +240,7 @@
 
                 </div>
 
-                <div class="col-12  bg-gradient" style=" background-color: black;opacity: 100%">
+                <div class="col-8 offset-2 rounded-3 bg-gradient" style=" background-color: black;opacity: 100%">
                     <div class="offset-5">
                         <input type="submit" name="cadastrarProtese"
                                class="btn btn-success btInput" value="Enviar"
