@@ -4,7 +4,7 @@ echo
  $altura = 1.60;
  
  if(($resultado) && $resultado != '0'){;	
-    $a;
+    $b;
     print_r ("Seu IMC é:<br>");
     print_r (".$resultado."<br>");
 
